@@ -122,7 +122,7 @@ with tab1:
      col1, col2 = st.columns([1, 1.3])
 
      with col1:
-            st.image("water_scarcity.jpg", caption="© World Wildlife", width=300)
+            st.image("dengue.jpg", caption="© GMA Integrated News", width=300)
 
     with col2:
             st.markdown("""
@@ -144,7 +144,7 @@ with tab1:
                             """)
             
         with col2:
-            st.image("world.jpg", caption="© Unicef", width=300)
+            st.image("dengue_world.jpg", caption="© World Health Organization", width=300)
         with st.expander("Learn More"):
                             st.markdown("""
             In addition, according to the European Centre for Disease Prevention and Control (2024), there has been a substantial increase in the number of imported cases of dengue to the EU/EEA since the beginning of 2024, resulting in over 12 million dengue cases, and over 8000 dengue-related deaths have been reported from 86 countries. However, there are many endemic countries that have no strong detection and reporting mechanisms, resulting in underestimated detection of dengue globally (World Health Organization, 2024)
@@ -155,7 +155,7 @@ with tab1:
         col1, col2 = st.columns([1, 1.3])
 
         with col1:
-            st.image("philippine.jpg", caption="© Cebu City Councilor Joel Garganera", width=300)
+            st.image("dengue_philippines.jpg", caption="© GMA Integrated News", width=300)
 
         with col2:
             st.markdown("""
@@ -176,19 +176,20 @@ with tab2:
     st.markdown("""    
     ### Waste
 
-    The total amount of rain falling in a specific area within a particular time frame.
+    Everything that no longer serves a purpose and requires disposal is considered waste. The term particularly applies to discarded materials however, there are specific classifications for waste with respect on how they are regulated and handled, especially in professional settings. Additionally, many solid wastes are liquid, semi-solid, or contain gaseous material. Solid wastes are any material that is discarded by being abandoned or thrown away. Furthermore, the Philippine National Statistics Office (NSO) estimated the country's population in 2012 to be around 97 million with an annual growth rate of 1.87%. According to this figure, the Philippines is the 12th largest country in the world today, making the country more prominent to pollution caused by solid wastes. Furthermore, the Ecological Solid Waste Management Act of 2000, Republic Act 9003, was approved on January 26, 2001 and came into effect on February 16, 2001. Ecological Solid Waste Management under the law refers to the systematic administration of activities which provide for segregation at source, segregated transportation, storage, transfer, processing, treatment, and disposal of solid waste and all other waste management activities which do not harm the environment. Consequently, the country has been in several actions to lessen wastes and mitigates the phenomenon they trigger.st
     """)
 
     st.markdown("""    
-    ### Flood
+    ### Heat Index
 
-    A flood is defined as an overflow of water that submerges land that is usually dry, most of the time as a result of excessive rainfall or storm surges. Floods in the Philippines are some of the common natural occurrences that pose significant risk to people and their physical structures within the region. For instance, as of 2024, areas in the Philippines especially Mindanao are currently affected by significant experiencing floods and landslides due continuous rainfall which has affected 882,861 people of whom 612,234 are displaced. Some of the factors that causes flooding includes deforestation, ineffective waste disposal methods, poor drainage channel and structure designs, Inadequate maintenance of drainage facilities, blockage by debris brought by flood waters and the effects of climate change, which increase rainfall intensity and frequency. Floods are recorded through various methods, including satellite imagery, river gauge or steam gauge readings, and meteorological data collected from weather stations. Such tools are effective towards certain agencies like PAGASA, in determining the water level and forecasting possible flood occurrences. As a result, it has been clear that flood is indeed measurable, as their impact can be quantified in terms of water level or depth, volume of area affected, and duration, providing essential information for an effective disaster response.
+    Heat Index is also known as the apparent temperature defined as the temperature felt to the human body due to the combined effects of air temperature and humidity. As humidity increases, the heat index also increases, and when the humidity decreases, the heat index also decreases (Arayata, 2024). In addition, according to the Cabato (2024) the heat index in the Philippines is at the peak, scorching 42 to 48 degrees Celsius last May 2024 stated by Philippine Atmospheric, Geophysical, and Astronomical Services Administration (PAGASA). Moreover, according to Baizas (2024) as they analyzed the recorded data from PAGASA, it indicates the extreme temperature of heat index may result in heat stroke if directly exposed to the sun. Thus, if global temperatures continue to rise by 2ºC and repeatedly occur, extreme heat may be expected every two to three years in the Philippines that may lead to various climate issues.
     """)
 
     st.markdown("""        
     ### Rainfall
 
-    The total amount of rain falling in a specific area within a particular time frame.
+    Rainfall is defined as a measure of rain in a certain period of time. It is considered as one of the main drivers of dengue transmission as mosquitoes require water to reproduce (Benedum, et al., 2018). Moreover, according to Hong (2022) the Philippines is highly vulnerable to the impacts of climate change with the increased frequency of heavy rainfall. This resulted in landslides and floods along with a loss of life and damages to infrastructure. In addition, according to Sherwood (2024) there are past studies which focused on long-term average rain which is not systematically changing globally, and have difficulty measuring the changes of extreme rainfall with accuracy.
+
     """)
     
     st.markdown("""    
