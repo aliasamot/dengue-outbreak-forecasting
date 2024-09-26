@@ -104,7 +104,7 @@ def image_to_base64(image_path):
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 # Convert your logo image to base64
-logo_base64 = image_to_base64("logo.png")
+logo_base64 = image_to_base64("dengue_logo.png")
 
 st.markdown(f"""
 <header style="display: flex; align-items: center;">
