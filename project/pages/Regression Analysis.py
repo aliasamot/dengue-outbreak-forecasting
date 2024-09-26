@@ -185,9 +185,9 @@ if uploaded_file:
 
             # Prediction input
             st.write("Use the model to make predictions")
-            predict_x1 = st.number_input('Enter new value for Heat Index', value=0.0)
-            predict_x2 = st.number_input('Enter new value for Rainfall', value=0.0)
-            predict_x3 = st.number_input('Enter new value for Total Water Withdrawal', value=0.0)
+            predict_x1 = st.number_input('Enter new value for Waste', value=0.0)
+            predict_x2 = st.number_input('Enter new value for Heat Index', value=0.0)
+            predict_x3 = st.number_input('Enter new value for Rainfall', value=0.0)
 
 
 if st.button("Home"):
