@@ -183,14 +183,24 @@ if uploaded_file is not None:
             equation = f"{dep_var} = {st.session_state.b0} + {st.session_state.b1}*{x1} + {st.session_state.b2}*{x2} + {st.session_state.b3}*{x3}"
             st.write(f"Calculated Regression Equation: {equation}")
 
-            # Calculate R² and Mean Squared Error (MSE)
+            # Calculate MSE and R² for the entire dataset using the predicted values
+            data['Predicted_' + dep_var] = (st.session_state.b0 + 
+                                             st.session_state.b1 * data[x1] + 
+                                             st.session_state.b2 * data[x2] + 
+                                             st.session_state.b3 * data[x3])
+
+            # Calculate residuals
             residuals = data[dep_var] - data['Predicted_' + dep_var]
-            r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
+
+            # Mean Squared Error
             mse = (residuals ** 2).mean()
-            
-            # Display R² and MSE
-            st.write(f"R² (Coefficient of Determination): {r2:}")
+
+            # R-squared
+            r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
+
+            # Display MSE and R²
             st.write(f"Mean Squared Error (MSE): {mse:}")
+            st.write(f"R² (Coefficient of Determination): {r2:}")
             
 # Ensure that the prediction form is only shown if the coefficients have been computed
 if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_state and 'b3' in st.session_state:
