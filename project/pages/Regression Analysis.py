@@ -51,7 +51,7 @@ st.markdown(
     h3 {
         font-family: 'Libre Baskerville', sans-serif;
         font-size: 2em;
-        color: #227B94;
+        color: #800000;
         justify-content: center;
     }
 
@@ -77,9 +77,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 def calculate_regression_coefficients(data, x1, x2, x3, dep_var):
     try:
-         # Extracting X (independent variables) and y (dependent variable)
+        # Extracting X (independent variables) and y (dependent variable)
         x1 = data[x1].values
         x2 = data[x2].values
         x3 = data[x3].values
@@ -132,7 +133,7 @@ def calculate_regression_coefficients(data, x1, x2, x3, dep_var):
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
-        return None, None, None, None  
+        return None, None, None, None
     
 # Streamlit interface
 st.markdown(f"""
@@ -156,9 +157,9 @@ if uploaded_file is not None:
 
     # Select dependent and independent variables
     numeric_columns = data.select_dtypes(include=[np.number]).columns
-    x1 = st.selectbox("Select the first independent variable (X1)", numeric_columns)
-    x2 = st.selectbox("Select the second independent variable (X2)", numeric_columns)
-    x3 = st.selectbox("Select the third independent variable (X3)", numeric_columns)
+    x1 = st.selectbox("Select the first independent variable (X1)", numeric_columns)  # Example: "Waste"
+    x2 = st.selectbox("Select the second independent variable (X2)", numeric_columns)  # Example: "Heat Index"
+    x3 = st.selectbox("Select the third independent variable (X3)", numeric_columns)  # Example: "Flood"
     dep_var = st.selectbox("Select the dependent variable (y)", numeric_columns)
 
     # Perform regression when button is clicked
@@ -166,34 +167,44 @@ if uploaded_file is not None:
         b0, b1, b2, b3 = calculate_regression_coefficients(data, x1, x2, x3, dep_var)
         
         if b0 is not None and b1 is not None and b2 is not None and b3 is not None:
+            # Store coefficients in session state to access during prediction
+            st.session_state.b0 = b0[0]
+            st.session_state.b1 = b1[0]
+            st.session_state.b2 = b2[0]
+            st.session_state.b3 = b3[0]
+
             # Display coefficients and equation
-            st.write(f"Intercept (b0): {b0:}")
-            st.write(f"Coefficient for {x1} (b1): {b1:}")
-            st.write(f"Coefficient for {x2} (b2): {b2:}")
-            st.write(f"Coefficient for {x3} (b3): {b3:}")
+            st.write(f"Intercept (b0): {st.session_state.b0}")
+            st.write(f"Coefficient for {x1} (b1): {st.session_state.b1}")
+            st.write(f"Coefficient for {x2} (b2): {st.session_state.b2}")
+            st.write(f"Coefficient for {x3} (b3): {st.session_state.b3}")
 
             # Display the regression equation
-            equation = f"{dep_var} = {b0:} + {b1:}*{x1} + {b2:}*{x2} + {b3:}*{x3}"
+            equation = f"{dep_var} = {st.session_state.b0} + {st.session_state.b1}*{x1} + {st.session_state.b2}*{x2} + {st.session_state.b3}*{x3}"
             st.write(f"Calculated Regression Equation: {equation}")
 
-            # Predict the values for the entire dataset using the formula
-            data['Predicted_' + dep_var] = b0 + (b1 * data[x1]) + (b2 * data[x2]) + (b3 * data[x3]) 
+# Ensure that the prediction form is only shown if the coefficients have been computed
+if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_state and 'b3' in st.session_state:
+    # Prediction form
+    st.markdown("### Predict using new values:")
+    
+    with st.form(key='prediction_form'):
+        new_x1 = st.number_input(f"Enter new value for X1", format="%.5f",value=0.0)
+        new_x2 = st.number_input(f"Enter new value for X2", format="%.5f",value=0.0)
+        new_x3 = st.number_input(f"Enter new value for X3", format="%.5f",value=0.0)
+        
+        # Submit button
+        submit_button = st.form_submit_button(label='Predict')
 
-            # Calculate R² and Mean Squared Error (MSE)
-            residuals = data[dep_var] - data['Predicted_' + dep_var]
-            r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
-            mse = (residuals ** 2).mean()
+        if submit_button:
+            # Calculate the predicted value using the stored coefficients
+            predicted_y = (st.session_state.b0 + 
+                           st.session_state.b1 * new_x1 + 
+                           st.session_state.b2 * new_x2 + 
+                           st.session_state.b3 * new_x3)
             
-            # Display R² and MSE
-            st.write(f"R² (Coefficient of Determination): {r2:}")
-            st.write(f"Mean Squared Error (MSE): {mse:}")
-
-            # Prediction input
-            st.write("Use the model to make predictions")
-            predict_x1 = st.number_input('Enter new value for Waste', value=0.0)
-            predict_x2 = st.number_input('Enter new value for Heat Index', value=0.0)
-            predict_x3 = st.number_input('Enter new value for Rainfall', value=0.0)
-
+            # Display the prediction result
+            st.write(f"Predicted value for {dep_var}: {predicted_y}")
 
 if st.button("Home"):
     st.switch_page("Home.py")
