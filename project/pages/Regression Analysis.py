@@ -195,8 +195,14 @@ if uploaded_file is not None:
             # Mean Squared Error
             mse = (1 / n) * (residuals ** 2).sum()
 
-            # R-squared
-            r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
+            # Numerator: Sum of squared residuals divided by (n - p or 3)
+            numerator = (residuals ** 2).sum() / (n - 3)
+
+            # Denominator: Total sum of squares divided by (n - 1)
+            denominator = ((data[dep_var] - data[dep_var].mean()) ** 2).sum() / (n - 1)
+
+            # R-squared calculation
+            r2 = 1 - numerator / denominator
 
             # Display MSE and R²
             st.write(f"Mean Squared Error (MSE): {mse:}")
