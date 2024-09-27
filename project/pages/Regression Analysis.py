@@ -144,10 +144,15 @@ st.markdown(f"""
 # Upload dataset
 uploaded_file = st.file_uploader("Upload your dataset (CSV file)", type="csv")
 
-if uploaded_file:
+# Check if a file has been uploaded
+if uploaded_file is not None:
+    # Read the file into a pandas DataFrame
     data = pd.read_csv(uploaded_file)
-    st.write("Dataset Preview:")
-    st.write(data)
+    st.write(data)  # Display the DataFrame
+
+    # Automatically convert columns with commas or non-numeric characters into numeric
+    for col in data.columns:
+        data[col] = pd.to_numeric(data[col].astype(str).str.replace(',', ''), errors='coerce')
 
     # Select dependent and independent variables
     numeric_columns = data.select_dtypes(include=[np.number]).columns
