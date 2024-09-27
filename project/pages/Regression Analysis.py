@@ -199,8 +199,8 @@ if uploaded_file is not None:
             r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
 
             # Display MSE and R²
-            st.write(f"Mean Squared Error (MSE): {mse:.5f}")
-            st.write(f"R² (Coefficient of Determination): {r2:.5f}")
+            st.write(f"Mean Squared Error (MSE): {mse:}")
+            st.write(f"R² (Coefficient of Determination): {r2:}")
             
 # Ensure that the prediction form is only shown if the coefficients have been computed
 if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_state and 'b3' in st.session_state:
@@ -223,7 +223,7 @@ if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_
                            st.session_state.b3 * new_x3)
             
             # Display the prediction result
-            st.write(f"Predicted value for {dep_var}: {predicted_y:.5f}")
+            st.write(f"Predicted value for {dep_var}: {predicted_y:}")
 
 if st.button("Home"):
     st.switch_page("Home.py")
