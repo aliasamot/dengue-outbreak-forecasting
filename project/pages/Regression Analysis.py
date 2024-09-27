@@ -15,20 +15,20 @@ st.markdown(
     
     /* Button styles */
     .stButton > button {
-    background-color: #982B1C; 
-    border-radius: 12px;
-    padding: 10px 24px;
-    color: white; /* Text color */
-    font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border: none; 
+        background-color: #982B1C; 
+        border-radius: 12px;
+        padding: 10px 24px;
+        color: white; /* Text color */
+        font-size: 16px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        border: none; 
     }
 
     /* Hover effect for buttons */
     .stButton > button:hover {
-    background-color: #800000; 
-    color: white; 
+        background-color: #800000; 
+        color: white; 
     }
 
     /* Header style */
@@ -92,7 +92,7 @@ def calculate_regression_coefficients(data, x1, x2, x3, dep_var):
         sum_x1 = x1.sum()
         sum_x2 = x2.sum()
         sum_x3 = x3.sum()
-        
+
         sum_x1_x1 = (x1 ** 2).sum() - (sum_x1 * sum_x1) / n
         sum_x2_x2 = (x2 ** 2).sum() - (sum_x2 * sum_x2) / n
         sum_x3_x3 = (x3 ** 2).sum() - (sum_x3 * sum_x3) / n
@@ -125,15 +125,15 @@ def calculate_regression_coefficients(data, x1, x2, x3, dep_var):
         b0 = sum_y/n - (B[0] * sum_x1/n) - (B[1] * sum_x2/n) - (B[2] * sum_x3/n)
 
         # Return the coefficients B0 (intercept), B1, B2, B3
-        return b0, B[0], B[1], B[2]
+        return b0, B[0], B[1], B[2], n
 
     except KeyError as e:
         st.error(f"Column '{e.args[0]}' not found in the dataset.")
-        return None, None, None, None
+        return None, None, None, None, None
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
-        return None, None, None, None
+        return None, None, None, None, None
     
 # Streamlit interface
 st.markdown(f"""
@@ -164,7 +164,7 @@ if uploaded_file is not None:
 
     # Perform regression when button is clicked
     if st.button("Calculate Regression Coefficients"):
-        b0, b1, b2, b3 = calculate_regression_coefficients(data, x1, x2, x3, dep_var)
+        b0, b1, b2, b3, n = calculate_regression_coefficients(data, x1, x2, x3, dep_var)
         
         if b0 is not None and b1 is not None and b2 is not None and b3 is not None:
             # Store coefficients in session state to access during prediction
@@ -199,8 +199,8 @@ if uploaded_file is not None:
             r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
 
             # Display MSE and R²
-            st.write(f"Mean Squared Error (MSE): {mse:}")
-            st.write(f"R² (Coefficient of Determination): {r2:}")
+            st.write(f"Mean Squared Error (MSE): {mse:.5f}")
+            st.write(f"R² (Coefficient of Determination): {r2:.5f}")
             
 # Ensure that the prediction form is only shown if the coefficients have been computed
 if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_state and 'b3' in st.session_state:
@@ -208,9 +208,9 @@ if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_
     st.markdown("### Predict using new values:")
     
     with st.form(key='prediction_form'):
-        new_x1 = st.number_input(f"Enter new value for X1", format="%.5f",value=0.0)
-        new_x2 = st.number_input(f"Enter new value for X2", format="%.5f",value=0.0)
-        new_x3 = st.number_input(f"Enter new value for X3", format="%.5f",value=0.0)
+        new_x1 = st.number_input(f"Enter new value for X1", format="%.5f", value=0.0)
+        new_x2 = st.number_input(f"Enter new value for X2", format="%.5f", value=0.0)
+        new_x3 = st.number_input(f"Enter new value for X3", format="%.5f", value=0.0)
         
         # Submit button
         submit_button = st.form_submit_button(label='Predict')
@@ -223,7 +223,7 @@ if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_
                            st.session_state.b3 * new_x3)
             
             # Display the prediction result
-            st.write(f"Predicted value for {dep_var}: {predicted_y}")
+            st.write(f"Predicted value for {dep_var}: {predicted_y:.5f}")
 
 if st.button("Home"):
     st.switch_page("Home.py")
