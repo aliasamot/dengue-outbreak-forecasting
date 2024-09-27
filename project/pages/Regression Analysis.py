@@ -193,7 +193,7 @@ if uploaded_file is not None:
             residuals = data[dep_var] - data['Predicted_' + dep_var]
 
             # Mean Squared Error
-            mse = (residuals ** 2).mean()
+            mse = (1 / n) * (residuals ** 2).sum()
 
             # R-squared
             r2 = 1 - (residuals ** 2).sum() / ((data[dep_var] - data[dep_var].mean()) ** 2).sum()
