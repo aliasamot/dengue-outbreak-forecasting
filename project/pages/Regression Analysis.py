@@ -51,7 +51,7 @@ st.markdown(
     h3 {
         font-family: 'Libre Baskerville', sans-serif;
         font-size: 2em;
-        color: #227B94;
+        color: #800000;
         justify-content: center;
     }
 
