@@ -189,9 +189,9 @@ if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_
     st.markdown("### Predict using new values:")
     
     with st.form(key='prediction_form'):
-        new_x1 = st.number_input(f"Enter new value for X1", format="%.6f",value=0.0)
-        new_x2 = st.number_input(f"Enter new value for X2", format="%.6f",value=0.0)
-        new_x3 = st.number_input(f"Enter new value for X3", format="%.6f",value=0.0)
+        new_x1 = st.number_input(f"Enter new value for X1", format="%.5f",value=0.0)
+        new_x2 = st.number_input(f"Enter new value for X2", format="%.5f",value=0.0)
+        new_x3 = st.number_input(f"Enter new value for X3", format="%.5f",value=0.0)
         
         # Submit button
         submit_button = st.form_submit_button(label='Predict')
