@@ -51,7 +51,7 @@ st.markdown(
     h3 {
         font-family: 'Libre Baskerville', sans-serif;
         font-size: 2em;
-        color: #227B94;
+        color: #800000;
         justify-content: center;
     }
 
@@ -157,9 +157,9 @@ if uploaded_file is not None:
 
     # Select dependent and independent variables
     numeric_columns = data.select_dtypes(include=[np.number]).columns
-    x1 = st.selectbox("Select the first independent variable (X1)", numeric_columns)  # Example: "Waste"
-    x2 = st.selectbox("Select the second independent variable (X2)", numeric_columns)  # Example: "Heat Index"
-    x3 = st.selectbox("Select the third independent variable (X3)", numeric_columns)  # Example: "Flood"
+    x1 = st.selectbox("Select the first independent variable (X1)", numeric_columns) 
+    x2 = st.selectbox("Select the second independent variable (X2)", numeric_columns) 
+    x3 = st.selectbox("Select the third independent variable (X3)", numeric_columns)  \
     dep_var = st.selectbox("Select the dependent variable (y)", numeric_columns)
 
     # Perform regression when button is clicked
@@ -189,9 +189,9 @@ if 'b0' in st.session_state and 'b1' in st.session_state and 'b2' in st.session_
     st.markdown("### Predict using new values:")
     
     with st.form(key='prediction_form'):
-        new_x1 = st.number_input(f"Enter new value for X1", format="%.5f",value=0.0)
-        new_x2 = st.number_input(f"Enter new value for X2", format="%.5f",value=0.0)
-        new_x3 = st.number_input(f"Enter new value for X3", format="%.5f",value=0.0)
+        new_x1 = st.number_input(f"Enter new value for X1", format="%.6f",value=0.0)
+        new_x2 = st.number_input(f"Enter new value for X2", format="%.6f",value=0.0)
+        new_x3 = st.number_input(f"Enter new value for X3", format="%.6f",value=0.0)
         
         # Submit button
         submit_button = st.form_submit_button(label='Predict')
