@@ -202,6 +202,6 @@ with tab2:
 # Custom footer
 st.markdown("""
 <footer>
-   Gen. Juan Castaneda Senior High School | © 2025
+   Gen. Juan Castañeda Senior High School | © 2025
 </footer>
 """, unsafe_allow_html=True)
