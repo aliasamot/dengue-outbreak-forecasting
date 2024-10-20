@@ -42,13 +42,25 @@ st.markdown(
         align-items: center;
     }
 
+       /* Header style */
+    header {
+        background-color: #800000;
+        padding: 5px;
+        display: flex;
+        justify-content: center;  /* Centers the content horizontally */
+        align-items: center;
+        text-align: center;       /* Centers the text */
+    }
+
     header h1 {
         font-family: 'Libre Baskerville', sans-serif;
-        font-size: 2.3em;
+        font-size: 2em;
         color: white;
         text-shadow: 1px 1px 2px #000000;
         margin: 0;
+        text-align: center;       /* Ensures the header text is centered */
     }
+
     
     h3 {
         font-family: 'Libre Baskerville', sans-serif;
