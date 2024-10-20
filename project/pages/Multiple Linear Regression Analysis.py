@@ -19,7 +19,7 @@ st.markdown(
         border-radius: 12px;
         padding: 10px 24px;
         color: white; /* Text color */
-        font-size: 13px;
+        font-size: 16px;
         font-family: 'Quicksand', sans-serif;
         font-weight: bold;
         border: none; 
@@ -42,7 +42,7 @@ st.markdown(
 
     header h1 {
         font-family: 'Libre Baskerville', sans-serif;
-        font-size: 2.3em;
+        font-size: 2em;
         color: white;
         text-shadow: 1px 1px 2px #000000;
         margin: 0;
