@@ -138,7 +138,7 @@ def calculate_regression_coefficients(data, x1, x2, x3, dep_var):
 # Streamlit interface
 st.markdown(f"""
 <header>
-    <h1>Regression Analysis</h1>
+    <h1>Multiple Linear Regression Analysis</h1>
 </header>
 """, unsafe_allow_html=True)
 
