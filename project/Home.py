@@ -176,7 +176,7 @@ with tab2:
     st.markdown("""    
     ### Waste
 
-    Everything that no longer serves a purpose and requires disposal is considered waste. The term particularly applies to discarded materials however, there are specific classifications for waste with respect on how they are regulated and handled, especially in professional settings. Additionally, many solid wastes are liquid, semi-solid, or contain gaseous material. Solid wastes are any material that is discarded by being abandoned or thrown away. Furthermore, the Philippine National Statistics Office (NSO) estimated the country's population in 2012 to be around 97 million with an annual growth rate of 1.87%. According to this figure, the Philippines is the 12th largest country in the world today, making the country more prominent to pollution caused by solid wastes. Furthermore, the Ecological Solid Waste Management Act of 2000, Republic Act 9003, was approved on January 26, 2001 and came into effect on February 16, 2001. Ecological Solid Waste Management under the law refers to the systematic administration of activities which provide for segregation at source, segregated transportation, storage, transfer, processing, treatment, and disposal of solid waste and all other waste management activities which do not harm the environment. Consequently, the country has been in several actions to lessen wastes and mitigates the phenomenon they trigger.st
+    Everything that no longer serves a purpose and requires disposal is considered waste. The term particularly applies to discarded materials however, there are specific classifications for waste with respect on how they are regulated and handled, especially in professional settings. Additionally, many solid wastes are liquid, semi-solid, or contain gaseous material. Solid wastes are any material that is discarded by being abandoned or thrown away. Furthermore, the Philippine National Statistics Office (NSO) estimated the country's population in 2012 to be around 97 million with an annual growth rate of 1.87%. According to this figure, the Philippines is the 12th largest country in the world today, making the country more prominent to pollution caused by solid wastes. Furthermore, the Ecological Solid Waste Management Act of 2000, Republic Act 9003, was approved on January 26, 2001 and came into effect on February 16, 2001. Ecological Solid Waste Management under the law refers to the systematic administration of activities which provide for segregation at source, segregated transportation, storage, transfer, processing, treatment, and disposal of solid waste and all other waste management activities which do not harm the environment. Consequently, the country has been in several actions to lessen wastes and mitigates the phenomenon they trigger.
     """)
     
     if st.button("Linear Regression Analysis for Amount of Waste"):
@@ -202,7 +202,7 @@ with tab2:
         st.switch_page("pages/Amount of Rainfall.py")
         
     st.markdown("""    
-    ### Regression Analysis
+    ### Multiple Linear Regression Analysis
 """)
     
     if st.button("Multiple Linear Regression Analysis"):
