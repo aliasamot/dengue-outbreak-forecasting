@@ -54,7 +54,7 @@ st.markdown(
 
     header h1 {
         font-family: 'Libre Baskerville', sans-serif;
-        font-size: 2em;
+        font-size: 1.8em;
         color: white;
         text-shadow: 1px 1px 2px #000000;
         margin: 0;
