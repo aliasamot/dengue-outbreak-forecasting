@@ -197,7 +197,7 @@ with tab2:
 """)
     
     if st.button("Regression Analysis"):
-        st.switch_page("pages/Regression Analysis.py")
+        st.switch_page("pages/Multiple Linear Regression Analysis.py")
 
 # Custom footer
 st.markdown("""
