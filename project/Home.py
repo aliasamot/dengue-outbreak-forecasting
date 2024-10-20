@@ -178,13 +178,19 @@ with tab2:
 
     Everything that no longer serves a purpose and requires disposal is considered waste. The term particularly applies to discarded materials however, there are specific classifications for waste with respect on how they are regulated and handled, especially in professional settings. Additionally, many solid wastes are liquid, semi-solid, or contain gaseous material. Solid wastes are any material that is discarded by being abandoned or thrown away. Furthermore, the Philippine National Statistics Office (NSO) estimated the country's population in 2012 to be around 97 million with an annual growth rate of 1.87%. According to this figure, the Philippines is the 12th largest country in the world today, making the country more prominent to pollution caused by solid wastes. Furthermore, the Ecological Solid Waste Management Act of 2000, Republic Act 9003, was approved on January 26, 2001 and came into effect on February 16, 2001. Ecological Solid Waste Management under the law refers to the systematic administration of activities which provide for segregation at source, segregated transportation, storage, transfer, processing, treatment, and disposal of solid waste and all other waste management activities which do not harm the environment. Consequently, the country has been in several actions to lessen wastes and mitigates the phenomenon they trigger.st
     """)
-
+    
+    if st.button("Linear Regression Analysis for Amount of Waste"):
+        st.switch_page("pages/Amount of Waste.py")
+        
     st.markdown("""    
     ### Heat Index
 
     Heat Index is also known as the apparent temperature defined as the temperature felt to the human body due to the combined effects of air temperature and humidity. As humidity increases, the heat index also increases, and when the humidity decreases, the heat index also decreases (Arayata, 2024). In addition, according to the Cabato (2024) the heat index in the Philippines is at the peak, scorching 42 to 48 degrees Celsius last May 2024 stated by Philippine Atmospheric, Geophysical, and Astronomical Services Administration (PAGASA). Moreover, according to Baizas (2024) as they analyzed the recorded data from PAGASA, it indicates the extreme temperature of heat index may result in heat stroke if directly exposed to the sun. Thus, if global temperatures continue to rise by 2ºC and repeatedly occur, extreme heat may be expected every two to three years in the Philippines that may lead to various climate issues.
     """)
-
+    
+    if st.button("Linear Regression Analysis for Heat Index"):
+        st.switch_page("pages/Heat Index.py")
+        
     st.markdown("""        
     ### Rainfall
 
@@ -192,18 +198,15 @@ with tab2:
 
     """)
     
+    if st.button("Linear Regression Analysis for Amount of Rainfall"):
+        st.switch_page("pages/Amount of Rainfall.py")
+        
     st.markdown("""    
     ### Regression Analysis
 """)
     
     if st.button("Multiple Linear Regression Analysis"):
         st.switch_page("pages/Multiple Linear Regression Analysis.py")
-    if st.button("Linear Regression Analysis for Amount of Waste"):
-        st.switch_page("pages/Amount of Waste.py")
-    if st.button("Linear Regression Analysis for Heat Index"):
-        st.switch_page("pages/Heat Index.py")
-    if st.button("Linear Regression Analysis for Amount of Rainfall"):
-        st.switch_page("pages/Amount of Rainfall.py")
          
 # Custom footer
 st.markdown("""
