@@ -1,0 +1,5 @@
+streamlit
+matplotlib
+pandas  # Include any other libraries your project uses
+numpy
+scikit-learn
