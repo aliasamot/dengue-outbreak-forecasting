@@ -196,9 +196,15 @@ with tab2:
     ### Regression Analysis
 """)
     
-    if st.button("Regression Analysis"):
+    if st.button("Multiple Linear Regression Analysis"):
         st.switch_page("pages/Multiple Linear Regression Analysis.py")
-
+    if st.button("Linear Regression Analysis for Amount of Waste"):
+        st.switch_page("pages/Amount of Waste.py")
+    if st.button("Linear Regression Analysis for Heat Index"):
+        st.switch_page("pages/Heat Index.py")
+    if st.button("Linear Regression Analysis for Amount of Rainfall"):
+        st.switch_page("pages/Amount of Rainfall.py")
+         
 # Custom footer
 st.markdown("""
 <footer>
