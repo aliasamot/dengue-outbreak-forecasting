@@ -19,7 +19,7 @@ st.markdown(
         border-radius: 12px;
         padding: 10px 24px;
         color: white; /* Text color */
-        font-size: 16px;
+        font-size: 13px;
         font-family: 'Quicksand', sans-serif;
         font-weight: bold;
         border: none; 
